@@ -198,21 +198,14 @@ LOGGING = {
     'disable_existing_loggers': False,
     'handlers': {
         'console': {
-            'level': LOGGING_LEVEL,
+            'level': 'DEBUG',
             'class': 'logging.StreamHandler',
-        },
-        'file': {
-            'level': LOGGING_LEVEL,
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': LOGGING_FOLDER / 'feed_processing.log',
-            'maxBytes': 1024 * 1024 * 200,  # 200 MB
-            'backupCount': 20,
         },
     },
     'loggers': {
         'feed_logger': {
-            'handlers': ['console', 'file'],
-            'level': LOGGING_LEVEL,
+            'handlers': ['console'],
+            'level': 'DEBUG',
             'propagate': True,
         },
     },
