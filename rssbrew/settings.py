@@ -41,6 +41,9 @@ INTERNAL_IPS = [
 allowed_hosts.append("localhost")
 allowed_hosts += INTERNAL_IPS
 
+SECURE_SSL_REDIRECT = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 #ALLOWED_HOSTS = allowed_hosts
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = [f"http://{host}" for host in allowed_hosts if not host.startswith('https')]
@@ -51,8 +54,9 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_REFERRER_POLICY = 'strict-origin-when-cross-origin'
 
 CSRF_COOKIE_SECURE = False
-SESSION_COOKIE_SECURE = False
-SESSION_COOKIE_DOMAIN = None
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_DOMAIN = '.herokuapp.com'
+SESSION_COOKIE_DOMAIN = '.herokuapp.com'
 SESSION_COOKIE_AGE = 1209600  # 2 weeks
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 SESSION_SAVE_EVERY_REQUEST = True
