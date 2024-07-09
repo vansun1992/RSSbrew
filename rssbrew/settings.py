@@ -20,6 +20,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 LOG_FILE_PATH = os.getenv('LOG_FILE_PATH', '/app/logs/feed_processing.log')
 
+ALLOWED_HOSTS = ['.herokuapp.com']
+
+CSRF_TRUSTED_ORIGINS = ['https://rssbrew-c576cc6a47bc.herokuapp.com']
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
